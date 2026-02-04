@@ -6,14 +6,17 @@ COMPILER		:= c++
 
 COMPILER_FLAGS	:= -Wall -Wextra -Werror -std=c++17
 
-SRCS			:= phonebook.cpp contact.cpp
+SRCS			:= PhoneBook.cpp Contact.cpp main.cpp
 
-OBJS			:= $(SRCS=.c=.o)
+OBJS			:= $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(COMPILER) $(COMPILER_FLAGS) $(OBJS) -o $(NAME)
+	$(COMPILER) $(COMPILER_FLAGS) $^ -o $(NAME)
+
+%.o: %.cpp
+	$(COMPILER) $(COMPILER_FLAGS) -c $< -o $@
 
 clean:
 	rm $(OBJS)
