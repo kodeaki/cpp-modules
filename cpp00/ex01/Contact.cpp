@@ -12,7 +12,7 @@ Contact::~Contact()
 {
 }
 
-std::string Contact::_fieldNames[5] = {
+std::string	Contact::_fieldNames[5] = {
 	"FirstName",
 	"LastName",
 	"NickName",
@@ -20,11 +20,11 @@ std::string Contact::_fieldNames[5] = {
 	"DarkestSecret"
 };
 
+// Takes input for the contact fields and saves them into _fieldData.
 void	Contact::newContact()
 {
 	for (int i = FirstName; i <= DarkestSecret; i++)
 	{
-
 		while (true)
 		{
 			std::cout << Contact::_fieldNames[i] << ":" << std::endl;
