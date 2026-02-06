@@ -1,5 +1,4 @@
 
-
 NAME			:= phonebook
 
 COMPILER		:= c++
@@ -18,11 +17,14 @@ $(NAME): $(OBJS)
 %.o: %.cpp
 	$(COMPILER) $(COMPILER_FLAGS) -c $< -o $@
 
+run: re
+	./$(NAME)
+
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
 
 fclean:	clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
