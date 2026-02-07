@@ -1,20 +1,28 @@
 
+NAME			:= megaphone
 
-NAME := megaphone
+COMPILER		:= c++
 
-COMPILER := c++
-COMPILER_FLAGS := -Wall -Wextra -Werror -std=c++17
+COMPILER_FLAGS	:= -Wall -Wextra -Werror -std=c++17
 
-SRC := megaphone.cpp
-OBJ := $(SRC:.c=.o)
+SRC				:= megaphone.cpp
+
+OBJ				:= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(COMPILER) $(COMPILER_FLAGS) $(OBJ) -o $(NAME)
+	$(COMPILER) $(COMPILER_FLAGS) $^ -o $(NAME)
+
+%.o: %.cpp
+	$(COMPILER) $(COMPILER_FLAGS) -c $< -o $@
 
 clean:
-	rm megaphone.o
+	rm -f $(OBJ)
 
-fclean:
-	rm megaphone
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
