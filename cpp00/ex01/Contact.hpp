@@ -21,6 +21,7 @@ class Contact {
 				PhoneNumber,
 				DarkestSecret
 			};
+		bool	hasNonPrintChar(const std::string& input);
 
 	public:
 		Contact();
@@ -29,7 +30,6 @@ class Contact {
 		void	newContact();
 		void	showContactBasic(int index);
 		void	showContactFull();
-		bool	hasNonPrintChar(const std::string& input);
 };
 
 #endif
