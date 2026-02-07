@@ -1,14 +1,21 @@
+
 #include <iostream>
+#include <string>
+
+void	ft_toupperstr(std::string str)
+{
+	for (size_t i = 0; i < str.length(); i++){
+		std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(str[i])));
+	}
+}
 
 int main(int argc, char*argv[])
 {
-  int i = 1;
-
   if (argc > 1)
-    while (i < argc){
-      std::cout << argv[i++];
+    for (int i = 1; i < argc; i++){
+      ft_toupperstr(argv[i]);
     }
   else
     std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-  std::cout << "\n";
+  std::cout << std::endl;
 }
