@@ -1,7 +1,7 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(str::string s) : _name(s)
+Zombie::Zombie(std::string str) : _name(str)
 {
 	std::cout << "Constructor called on: " << _name << std::endl;
 }
