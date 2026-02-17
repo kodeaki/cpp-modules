@@ -1,0 +1,20 @@
+
+#include <iostream>
+#include <string>
+
+int	main()
+{
+	std::string	brain = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &brain;
+	std::string	&stringREF = brain;
+
+	// Memory addresses
+	std::cout << &brain << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+
+	// Values
+	std::cout << brain << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+}
