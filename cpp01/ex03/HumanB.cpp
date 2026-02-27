@@ -16,14 +16,15 @@ void	HumanB::attack()
 {
 	if (this->_weapon == NULL) {
 		std::cout << this->_name
-				<< " can't attack with no weapon"
+				<< " has been abandoned by the Gods and only has his fists left to fight with"
 				<< std::endl;
-		return ;
 	}
+	else {
 	std::cout << this->_name
 			<< " attacks with their "
 			<< this->_weapon->getType()
 			<< std::endl;
+	}
 }
 
 void	HumanB::setWeapon(Weapon &weapon)
