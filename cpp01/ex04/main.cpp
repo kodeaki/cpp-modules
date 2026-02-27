@@ -8,7 +8,7 @@ std::string	ft_replace(std::string buffer, std::string strToReplace, std::string
 	size_t	replacementLen = replacementStr.length();
 
 	if (strToReplace.empty())
-		return buffer;
+		return (buffer);
 
 	std::size_t pos = 0;
 
@@ -20,7 +20,7 @@ std::string	ft_replace(std::string buffer, std::string strToReplace, std::string
 		buffer.insert(pos, replacementStr);
 		pos += replacementLen;
 	}
-	return buffer;
+	return (buffer);
 }
 
 int	main(int ac, char **av)

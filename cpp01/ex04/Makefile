@@ -21,18 +21,38 @@ $(NAME): $(OBJ)
 test:
 	echo -e "testing string\n" > test
 	./replacestr "test" "string" "replaced"
-	cat test.replace ; echo
+	@cat test.replace ; echo; echo
+	
 	echo -e "string string string\n" > test
 	./replacestr "test" "string" "test two"
-	cat test.replace ; echo
+	@cat test.replace ; echo; echo
+
 	echo -e "abcdefgihjklmnopqrstuvwxyz\n" > test
 	./replacestr "test" "q" "whydoiexist"
-	cat test.replace ; echo
-	rm test
-	rm test.replace
+	@cat test.replace ; echo; echo
+
+	@echo -e "error checking:\n"
+
+	@echo -e "no args:"
+	./replacestr ; echo
+
+	@echo -e "incorrect amount of args:"
+	./replacestr "test" "test" "test" "test" ; echo 
+
+	@echo -e "no perms:"
+	chmod 000 test
+	./replacestr "test" "no" "perms" ; echo
+
+	@echo -e "no such file:"
+	./replacestr "doesnotexist" "nothing" "exist" ; echo
+
+	@rm -f test
+	@rm -f test.replace
 
 clean:
 	rm -f $(OBJ)
+	@rm -f test
+	@rm -f test.replace
 
 fclean: clean
 	rm -f $(NAME)
