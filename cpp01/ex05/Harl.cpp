@@ -37,7 +37,10 @@ void	Harl::complain( std::string level )
 	std::string	valid_levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++) {
-		if (level == valid_levels[i])
+		if (level == valid_levels[i]) {
 			(this->*functionPtrs[i])();
+			return ;
+		}
 	}
+	std::cout << "not valid level" << std::endl;
 }
