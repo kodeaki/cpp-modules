@@ -26,7 +26,7 @@ std::string	ft_replace(std::string buffer, std::string strToReplace, std::string
 int	main(int ac, char **av)
 {
 	if (ac != 4) {
-		std::cout << "Usage: ./replacestr <filename> <strToReplace> <replacementStr" << std::endl;
+		std::cout << "Usage: ./replacestr <filename> <strToReplace> <replacementStr>" << std::endl;
 		return (1);
 	}
 
