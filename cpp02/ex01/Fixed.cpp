@@ -25,6 +25,13 @@ Fixed::Fixed(const Fixed &other)
 	*this = other;
 }
 
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+// Operators
+
 Fixed &Fixed::operator=(const Fixed &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -39,10 +46,7 @@ std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
     return os;
 }
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+// Public methods
 
 int		Fixed::toInt()const
 {

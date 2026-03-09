@@ -18,23 +18,6 @@ class Fixed {
 
 		Fixed	&operator=(const Fixed &other);
 
-		bool	operator>(const Fixed&other)const;
-		bool	operator<(const Fixed&other)const;
-		bool	operator>=(const Fixed&other)const;
-		bool	operator<=(const Fixed&other)const;
-		bool	operator==(const Fixed&other)const;
-		bool	operator!=(const Fixed&other)const;
-
-		Fixed	operator+(const Fixed&other)const;
-		Fixed	operator-(const Fixed&other)const;
-		Fixed	operator*(const Fixed&other)const;
-		Fixed	operator/(const Fixed&other)const;
-		
-		Fixed	&operator++();
-		Fixed	operator++(int);
-		Fixed	&operator--();
-		Fixed	operator--(int);
-
 		int		toInt()const;
 		float	toFloat()const;
 		int		getRawBits()const;
