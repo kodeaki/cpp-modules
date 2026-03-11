@@ -23,6 +23,7 @@ int	main()
 	ScavTrap	energyTestGuy("john");
 	for (int i = 0; i < 50; i++)
 		energyTestGuy.attack("nothing");
+	energyTestGuy.attack("nothing");
 	energyTestGuy.beRepaired(10);
 	std::cout << std::endl;
 
