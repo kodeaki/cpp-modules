@@ -1,5 +1,4 @@
 
-#include <cmath>
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _fixedPointValue(0)
@@ -19,34 +18,24 @@ Fixed::Fixed(const float value)
 	this->_fixedPointValue = roundf(value * (1 << this->_fractionalBits));
 }
 
-Fixed::Fixed(const Fixed &other)
+Fixed::Fixed(const Fixed& other)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
+}
+
+Fixed&	Fixed::operator=(const Fixed& other)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != & other)
+		this->_fixedPointValue = other.getRawBits();
+	return (*this);
 }
 
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
 }
-
-// Operators
-
-Fixed &Fixed::operator=(const Fixed &copy)
-{
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &copy)
-		this->_fixedPointValue = copy.getRawBits();
-	return (*this);
-}
-
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
-{
-    os << fixed.toFloat();
-    return os;
-}
-
-// Public methods
 
 int		Fixed::toInt()const
 {
@@ -68,4 +57,10 @@ void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member function called" << std::endl;
 	this->_fixedPointValue = raw;
+}
+
+std::ostream&	operator<<(std::ostream& outstream, const Fixed& fixed)
+{
+    outstream << fixed.toFloat();
+    return outstream;
 }

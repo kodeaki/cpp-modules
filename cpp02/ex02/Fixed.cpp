@@ -1,41 +1,40 @@
 
-#include <cmath>
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _fixedPointValue(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	_fixedPointValue = value << _fractionalBits;
 }
 
 Fixed::Fixed(const float value)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	_fixedPointValue = roundf(value * (1 << _fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
-Fixed&	Fixed::operator=(const Fixed &copy)
+Fixed&	Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &copy)
-		_fixedPointValue = copy.getRawBits();
+	// std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &other)
+		_fixedPointValue = other.getRawBits();
 	return (*this);
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 int		Fixed::toInt()const
@@ -136,9 +135,9 @@ Fixed&	Fixed::operator++()
 // Post increment
 Fixed	Fixed::operator++(int)
 {
-	Fixed	preIncrementValue = *this;
+	Fixed	beforeIncrementValue = *this;
 	_fixedPointValue++;
-	return (preIncrementValue);
+	return (beforeIncrementValue);
 }
 
 // Pre decrement
@@ -151,9 +150,9 @@ Fixed&	Fixed::operator--()
 // Post decrement
 Fixed	Fixed::operator--(int)
 {
-	Fixed	preDecrementValue = *this;
+	Fixed	beforeDecrementValue = *this;
 	_fixedPointValue--;
-	return (preDecrementValue);
+	return (beforeDecrementValue);
 }
 
 // Mins and maxes
@@ -189,9 +188,8 @@ const Fixed&	Fixed::max(const Fixed& a, const Fixed& b)
 		return (b);
 }
 
-// Outstream operator
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+std::ostream&	operator<<(std::ostream& outstream, const Fixed& fixed)
 {
-    os << fixed.toFloat();
-    return (os);
+    outstream << fixed.toFloat();
+    return (outstream);
 }

@@ -3,10 +3,11 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 	private:
-		int					_fixedPointValue;
+		long long int		_fixedPointValue;
 		static const int	_fractionalBits = 8;
 
 	public:
@@ -48,6 +49,6 @@ class Fixed {
 
 };
 
-std::ostream &operator<<(std::ostream &os, Fixed const &fixed);
+std::ostream& operator<<(std::ostream& outstream, const Fixed& fixed);
 
 #endif
