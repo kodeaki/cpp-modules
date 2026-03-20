@@ -20,8 +20,8 @@ class Animal
 		// the pure virtual function to become non-abstract classes.
 		// Removing the trailing "= 0" will make the code compilable.
 
-		// virtual void	makeSound()const = 0;
-		virtual void	makeSound()const;
+		virtual void	makeSound()const = 0;
+		// virtual void	makeSound()const;
 
 		std::string		getType()const ;
 };

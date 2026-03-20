@@ -7,7 +7,6 @@ Cat::Cat() : Animal(), _brain(new Brain())
 	_type = "Cat";
 }
 
-// Allocates new Brain and initialzies contents with other._brain contents.
 Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain))
 {
 	std::cout << "Cat copy constructor called" << std::endl;
@@ -16,9 +15,7 @@ Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain))
 Cat&	Cat::operator=(const Cat& other)
 {
 	if (this != &other) {
-		// Copy the base class (Animal) portion
-		Animal::operator = (other);
-		// Copy the brain contents
+		Animal::operator=(other);
 		*_brain = *other._brain;
 	}
 	std::cout << "Cat copy assignment operator called" << std::endl;
