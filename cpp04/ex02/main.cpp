@@ -7,7 +7,7 @@ int main()
 {
 	{
 		std::cout << "--- TEST Abstract Class ---" << std::endl << std::endl;
-		// Animal	animal;
+		Animal	animal;
 	}
 
 	std::cout << std::endl << "--- CREATING kitty ---" << std::endl << std::endl;
