@@ -37,22 +37,25 @@ int main()
 
 	for (int i = 0; i < size / 2; i++)
 	{
-		std::cout << "Creating Dog " << i << std::endl << std::endl;
+		std::cout << "Creating Dog " << i << std::endl;
 		animals[i] = new Dog();
+		std::cout << std::endl;
 	}
 
 	for (int i = size / 2; i < size; i++)
 	{
-		std::cout << "Creating Cat " << i << std::endl << std::endl;
+		std::cout << "Creating Cat " << i << std::endl;
 		animals[i] = new Cat();
+		std::cout << std::endl;
 	}
 
 	std::cout << std::endl << "--- DELETING ANIMAL ARRAY ---" << std::endl << std::endl;
 
 	for (int i = 0; i < size; i++)
 	{
-		std::cout << "Deleting animal " << i << std::endl << std::endl;
+		std::cout << "Deleting animal " << i << std::endl;
 		delete animals[i];
+		std::cout << std::endl;
 	}
 
 	return (0);
